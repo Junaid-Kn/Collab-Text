@@ -5,9 +5,15 @@
   "type": "module",
   "scripts": {
     "dev": "next dev",
+    "server": "tsx src/server/server.ts",
+    "dev:all": "npm run server & npm run dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test": "tsx --test src/lib/yata/yata-sequence.test.ts",
+    "test:integration": "tsx scripts/yata-integration-test.ts",
+    "cassandra:schema": "docker exec -i cassandra1 cqlsh < scripts/cassandra-schema.cql",
+    "cassandra:migrate": "docker exec -i cassandra1 cqlsh < scripts/cassandra-migrate-crdt.cql"
   },
   "dependencies": {
     "@monaco-editor/react": "^4.7.0",
@@ -27,6 +33,7 @@
     "ws": "^8.21.0"
   },
   "devDependencies": {
+    "tsx": "^4.19.4",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",

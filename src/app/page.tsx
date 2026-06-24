@@ -30,7 +30,7 @@ useEffect(() => {
   loadDocs();
 }, [getDocs]);
 
-  const handleClick = async (e) => {
+  const handleClick = async (e: React.MouseEvent) => {
     try { 
       const response = await fetch("http://localhost:3001/api/doc", { 
         method: "POST",

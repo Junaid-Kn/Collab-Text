@@ -2,7 +2,7 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  /* --foreground: #171717; */
 }
 
 @theme inline {
@@ -14,11 +14,27 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    /* --background: #0a0a0a; */
     --foreground: #ededed;
   }
 }
+.remote-cursor {
+  border-left: 2px solid red;
+  margin-left: -1px;
+  height: 100%;
+  position: relative;
 
+  animation: blinkBorder 1s infinite;
+}
+
+@keyframes blinkBorder {
+  0%, 49% {
+    border-left-color: red;
+  }
+  50%, 100% {
+    border-left-color: transparent;
+  }
+}
 body {
   background: var(--background);
   color: var(--foreground);
